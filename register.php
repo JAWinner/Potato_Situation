@@ -27,15 +27,10 @@ $request['message'] = $msg;
 
 
 $response = $client->send_request($request);
-echo "client received response: ".PHP_EOL;
-print_r($response);
-if ($response) == 1{
-	echo"Successfully Registered, you will be redirected in 3 seconds";
-	echo "\n\n";
-	header("refresh:3;url=index.html");
-}
-else{
-	echo "Registration failed, user already exsists";
+//PHP_EOL should echo in from backend
+echo "".PHP_EOL;
+//print_r($response);
+	//echo"Successfully Registered, you will be redirected in 3 seconds";
 	echo "\n\n";
 	header("refresh:3;url=index.html");
 }
