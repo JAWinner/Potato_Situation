@@ -20,7 +20,7 @@ else
 }
 //Get Username + Password
 $request = array();
-$request['type'] = "login";
+$request['type'] = "register";
 $request['username'] = $_POST['username'];
 $request['password'] = $_POST['pass'];
 $request['message'] = $msg;
@@ -31,8 +31,12 @@ echo "client received response: ".PHP_EOL;
 print_r($response);
 echo "\n\n";
 
+//Check for errors again
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+ini_set('display_errors', 1);
 
 if {
+	
 	global $mydb;
 	//Check to see if the user is already in the database
 	$username = $_POST['username'];
@@ -51,9 +55,11 @@ if {
 		$query = mysqli_query($mydb, "INSERT INTO user (username, password) VALUES ('$username','$password')");
 		$user = mysqli_fetch_array($userQuery, MYSQLI_ASSOC);
 		header("location:regsuccess.html");
+		return false;
 	}
 //Catch for all other errors
-else ($response == 0 ) {
+else ($response == 0 ) 
+{
 	$date = date_create();
 	header("location:regerror.html");
 }
