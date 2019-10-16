@@ -28,13 +28,15 @@ $request['message'] = $msg;
 
 $response = $client->send_request($request);
 echo "client received response: ".PHP_EOL;
+print_r($response);
 if ($response) == 1{
 	echo"Successfully Registered, you will be redirected in 3 seconds";
+	echo "\n\n";
+	header("refresh:3;url=index.html");
 }
 else{
 	echo "Registration failed, user already exsists";
+	echo "\n\n";
+	header("refresh:3;url=index.html");
 }
-print_r($response);
-echo "\n\n";
-header("refresh:3;url=index.html");
 ?>
