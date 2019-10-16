@@ -8,7 +8,7 @@ include('db.php');
 function doLogin($username, $password) {
 	global $db;
     // lookup username and password in database
-	$q = mysqli_query($db, "SELECT * FROM students WHERE username = '$username' AND password = '$password'");
+	$q = mysqli_query($db, "SELECT * FROM students WHERE BINARY username = '$username' AND BINARY password = '$password'");
 
 	// if there's an error, throw it in console	
 	if (!$q) {printf("ERROR: %s\n", mysqli_error($db));}
@@ -32,7 +32,7 @@ function doRegister($username, $password, $email) {
 	global $db;
 	
 	// check to see if the username exists first
-	$q = mysqli_query($db, "SELECT * FROM students WHERE username = '$username'");
+	$q = mysqli_query($db, "SELECT * FROM students WHERE BINARY username = '$username'");
 	$c = mysqli_num_rows($q);
 	if ($c == 1) {
 		// if there's a match, send a "username exists" message
