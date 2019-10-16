@@ -27,7 +27,7 @@ $request['message'] = $msg;
 
 
 $response = $client->send_request($request);
-echo "client received response: ".PHP_EOL;
+//echo "client received response: ".PHP_EOL;
 print_r($response);
 echo "\n\n";
 header("refresh:3;url=index.html");
