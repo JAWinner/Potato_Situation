@@ -41,7 +41,7 @@ function doRegister($username, $password, $email) {
 	}
 	else {
 		// no match, so insert the values into the DB
-		$q = mysqli_query($db, "INSERT INTO TABLE students (username, password, email) VALUES ('$username', '$password', '$email')");
+		$q = mysqli_query($db, "INSERT INTO students (username, password, email) VALUES ('$username', '$password', '$email')");
 		echo "Inserted values successfully!\n\n";
 		return true;
 	}
