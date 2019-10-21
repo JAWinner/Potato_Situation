@@ -1,15 +1,24 @@
 <?php
 
-//Check for any errors
+//Check for any errors (uneeded for now)
+/*
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 ini_set('display_errors', 1);
+*/
 
 //Grab required files 
 session_start();
+//THIS FILE MAY NOT BE NEEDED AFTER DELETE IF NOT IN USE
+require_once('errorlogging.php');
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+
+//Add new connection for logging to rabbitMQ
+$client_error_log = new rabbitMQClient("rabbitMQErrorLog.ini","testServer");
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+
+
 if (isset($argv[1]))
 {
   $msg = $argv[1];
@@ -27,16 +36,20 @@ $request['message'] = $msg;
 
 
 $response = $client->send_request($request);
-echo "client received response: ".PHP_EOL;
+echo "".PHP_EOL;
 print_r($response);
+//See if there is any response msg as of now we don't have.
 echo "\n\n";
+
 //If not in the database
 if ($response == 0 ) {
-	$date = date_create();
+	//$date = date_create();
 	header("location:loginerror.html");
 }
+
+
 else {
-	$date = date_create();
+	//$date = date_create();
 	header("Location: loginsuccess.html");
 }
 ?>
