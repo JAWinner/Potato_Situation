@@ -33,5 +33,5 @@ echo "".PHP_EOL;
 	//echo"Successfully Registered, you will be redirected in 3 seconds";
 	echo "\n\n";
 	header("refresh:3;url=index.html");
-}
+
 ?>
