@@ -29,9 +29,8 @@ $request['message'] = $msg;
 $response = $client->send_request($request);
 //PHP_EOL should echo in from backend
 echo "".PHP_EOL;
-//print_r($response);
-	//echo"Successfully Registered, you will be redirected in 3 seconds";
+print_r($response);
+	echo"You will be redirected in 5 seconds";
 	echo "\n\n";
-	header("refresh:3;url=index.html");
-
+	header("refresh:5;url=index.html");
 ?>
