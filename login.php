@@ -35,8 +35,9 @@ $request['message'] = $msg;
 
 
 $response = $client->send_request($request);
-echo "".PHP_EOL;
+echo "Request Failure".PHP_EOL;
 print_r($response);
+logger( __FILE__ . " : " . __LINE__ . " :error: " . "Bad Request Type");
 //See if there is any response msg as of now we don't have.
 echo "\n\n";
 
@@ -53,8 +54,4 @@ else {
 	header("Location: loginsuccess.html");
 	
 }
-
-default:
-		echo "REQUEST ERROR!" . PHP_EOL;
-		logger( __FILE__ . " : " . __LINE__ . " :error: " . "Bad Request Type");
 ?>
