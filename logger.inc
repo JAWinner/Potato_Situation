@@ -6,7 +6,7 @@ require_once('rabbitMQLib.inc');
 function logger($error){
 
 
-	$client = new rabbitMQClient("rabbitMQErrorLog.ini","logServer");
+	$client = new rabbitMQClient("rabbitMQErrorLog.ini","testServer");
 	//echo var_dump($client);
 
 
