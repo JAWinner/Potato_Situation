@@ -4,7 +4,7 @@ class errorLogger
   private $fp;
   
   
-  public function __construct($outputfile = "/home/anthony/git/it490project/error.log")
+  public function __construct($outputfile = "/home/tmp/errorlog.txt")
   {
     $this->fp = fopen($outputfile,"a");
   }
