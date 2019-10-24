@@ -41,18 +41,24 @@ print_r($response);
 //See if there is any response msg as of now we don't have.
 echo "\n\n";
 
-//If not in the database
+//Implement timeout for when unable to connect
+$timeout = 10;
+while(count($channel->callbacks)) {
+  $channel->wait(null, false, $timeout);
+  
+  //If not in the database
 if ($response == 0 ) {
 	//$date = date_create();
 	header("location:loginerror.html");
 	echo "REQUEST ERROR!" . PHP_EOL;
-	logger( __FILE__ . " : " . __LINE__ . " :error: " . "Bad Request Type");
+	logger( __FILE__ . " : " . __LINE__ . " :error: " . "Bad Request Type, check connection with database");
 }
 
 
 else {
 	//$date = date_create();
 	header("Location: loginsuccess.html");
-	
+}
+  
 }
 ?>
